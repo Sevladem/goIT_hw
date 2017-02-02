@@ -1,9 +1,9 @@
-package hm1;
+package homework1;
 
 /**
  * Created by SDem on 27.01.2017.
  */
-public class SecondClass {
+public class Fourth {
 
     public static void main(String[] args) {
 
