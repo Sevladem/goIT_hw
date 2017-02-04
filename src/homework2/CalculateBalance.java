@@ -2,29 +2,23 @@ package homework2;
 
 import java.util.*;
 
-/**
- * Created by Сергей on 02.02.2017.
- * It is task2
- */
 public class CalculateBalance {
 
     private static final int PERCENT_OF_COMMISSION = 5;
 
     public static void main(String[] args) {
-        Calculator calculator = new Calculator();
         Scanner in = new Scanner(System.in);
         double balance;
+        double withdrawal;
         double commission;
 
         System.out.print("Input balance: ");
-        calculator.setBalance(in.nextDouble());
+        balance = in.nextDouble();
         System.out.print("Input withdrawal: ");
-        calculator.setWithdrawal(in.nextDouble());
+        withdrawal = in.nextDouble();
 
-        calculator.calculate(PERCENT_OF_COMMISSION);
-        balance = calculator.getBalance();
-        commission = calculator.getCommission();
-
+        commission = Calculator.calculateCommission(withdrawal,PERCENT_OF_COMMISSION);
+        balance = Calculator.calculateBalance(balance,withdrawal,commission);
 
         if (balance < 0){
             System.out.println("NO");

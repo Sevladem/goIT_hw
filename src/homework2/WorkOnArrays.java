@@ -2,10 +2,6 @@ package homework2;
 
 import java.util.*;
 
-/**
- * Created by Сергей on 02.02.2017.
- * It is task1
- */
 public class WorkOnArrays {
 
     private static final int SIZE = 10;
@@ -15,39 +11,37 @@ public class WorkOnArrays {
         int[] intArray = initIntArray(SIZE);
         double[] doubleArray = initDoubleArray(SIZE);
 
-        CalculationsOnArrays calculator = new CalculationsOnArrays();
-
         int[] intModulus;
         double[] doubleModulus;
 
         System.out.println("int array = %d" + Arrays.toString(intArray));
         System.out.println("double array = " + Arrays.toString(doubleArray));
 
-        System.out.println(String.format("int sum = %d",calculator.sum(intArray)));
-        System.out.println(String.format("double sum = %.2f",calculator.sum(doubleArray)));
+        System.out.println(String.format("int sum = %d",CalculationsOnArrays.sum(intArray)));
+        System.out.println(String.format("double sum = %.2f",CalculationsOnArrays.sum(doubleArray)));
 
-        System.out.println(String.format("int min = %d",calculator.min(intArray)));
-        System.out.println(String.format("double min = %.2f",calculator.min(doubleArray)));
+        System.out.println(String.format("int min = %d",CalculationsOnArrays.min(intArray)));
+        System.out.println(String.format("double min = %.2f",CalculationsOnArrays.min(doubleArray)));
 
-        System.out.println(String.format("int max = %d",calculator.max(intArray)));
-        System.out.println(String.format("double max = %.2f",calculator.max(doubleArray)));
+        System.out.println(String.format("int max = %d",CalculationsOnArrays.max(intArray)));
+        System.out.println(String.format("double max = %.2f",CalculationsOnArrays.max(doubleArray)));
 
-        System.out.println(String.format("int max positive = %d",calculator.maxPositive(intArray)));
-        System.out.println(String.format("double max positive = %.2f",calculator.maxPositive(doubleArray)));
+        System.out.println(String.format("int max positive = %d",CalculationsOnArrays.maxPositive(intArray)));
+        System.out.println(String.format("double max positive = %.2f",CalculationsOnArrays.maxPositive(doubleArray)));
 
-        System.out.println(String.format("int multiplication = %d",calculator.multiplication(intArray)));
-        System.out.println(String.format("double multiplication = %.2f",calculator.multiplication(doubleArray)));
+        System.out.println(String.format("int multiplication = %d",CalculationsOnArrays.multiplication(intArray)));
+        System.out.println(String.format("double multiplication = %.2f",CalculationsOnArrays.multiplication(doubleArray)));
 
-        intModulus = calculator.modulus(intArray);
+        intModulus = CalculationsOnArrays.modulus(intArray);
         System.out.println(String.format("int modulus of first element = %d",intModulus[0]));
         System.out.println(String.format("int modulus of last element = %d",intModulus[1]));
 
-        doubleModulus = calculator.modulus(doubleArray);
+        doubleModulus = CalculationsOnArrays.modulus(doubleArray);
         System.out.println(String.format("double modulus of first element = %.2f",doubleModulus[0]));
         System.out.println(String.format("double modulus of last element = %.2f",doubleModulus[1]));
 
-        System.out.println(String.format("int second largest element = %d",calculator.secondLargest(intArray)));
-        System.out.println(String.format("double second largest element = %.2f",calculator.secondLargest(doubleArray)));
+        System.out.println(String.format("int second largest element = %d",CalculationsOnArrays.secondLargest(intArray)));
+        System.out.println(String.format("double second largest element = %.2f",CalculationsOnArrays.secondLargest(doubleArray)));
 
     }
 
