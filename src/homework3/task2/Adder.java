@@ -1,11 +1,7 @@
-package homework3;
+package homework3.task2;
 
 public class Adder extends Arithmetic{
-
-    boolean check(int a,int b){
-
+    public boolean check(int a,int b){
         return a>=b;
-
     }
-
 }

@@ -1,4 +1,4 @@
-package homework3;
+package homework3.task3;
 
 public class SpecialStudent extends CollegeStudent {
 
@@ -24,5 +24,13 @@ public class SpecialStudent extends CollegeStudent {
 
     public void setSecretKey(long secretKey) {
         this.secretKey = secretKey;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

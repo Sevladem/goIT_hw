@@ -1,4 +1,4 @@
-package homework3;
+package homework3.task3;
 
 import java.util.Date;
 
@@ -9,11 +9,11 @@ public class Course {
     private int hoursDuration;
     private String teacherName;
 
-    Course(Date startDate,String name){
+    public Course(Date startDate,String name){
 
     }
 
-    Course(int hourseDuration, String name, String teacherName){
+    public Course(int hourseDuration, String name, String teacherName){
 
     }
 

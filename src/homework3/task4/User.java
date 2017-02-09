@@ -1,7 +1,6 @@
-package homework3;
+package homework3.task4;
 
 public class User {
-
     private String name;
     private int balance;
     private int monthsOfEmployment;
@@ -67,15 +66,15 @@ public class User {
     }
 
     public void paySalary(){
-        this.balance = this.balance + this.salary;
+        this.balance += this.salary;
     }
 
     public void withdraw(int summ){
         double commission;
         if(summ<1000){
-            commission = summ*5/100;
+            commission = summ*0.05;
         }else{
-            commission = summ*10/100;
+            commission = summ*0.1;
         }
         this.balance = this.balance - summ - (int)commission;
     }
@@ -85,7 +84,6 @@ public class User {
     }
 
     public void monthIncreaser(int addMonth){
-        this.monthsOfEmployment = this.monthsOfEmployment + addMonth;
+        this.monthsOfEmployment += addMonth;
     }
-
 }
