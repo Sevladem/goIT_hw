@@ -10,11 +10,14 @@ public class Course {
     private String teacherName;
 
     public Course(Date startDate,String name){
-
+        this.startDate = startDate;
+        this.name = name;
     }
 
     public Course(int hourseDuration, String name, String teacherName){
-
+        this.hoursDuration = hourseDuration;
+        this.name = name;
+        this.teacherName = teacherName;
     }
 
     public Date getStartDate() {
