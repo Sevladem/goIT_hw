@@ -4,6 +4,19 @@ import homework4.task1.Bank;
 import homework4.task2.Currency;
 
 public class EUBank extends Bank {
+
+    public static final int LIMIT_OF_WITHDRAWAL_EUR = 2200;
+    public static final int LIMIT_OF_WITHDRAWAL_USD = 2000;
+    public static final int LIMIT_OF_FUNDING_EUR = 20000;
+    public static final int LIMIT_OF_FUNDING_USD = 10000;
+    public static final int MONTHLY_RATE_EUR = 1;
+    public static final int MONTHLY_RATE_USD = 0;
+    public static final int LOW_COMMISSION_EUR = 2;
+    public static final int HIGHT_COMMISSION_EUR = 4;
+    public static final int LOW_COMMISSION_USD = 5;
+    public static final int HIGHT_COMMISSION_USD = 7;
+    public static final int LIMIT_FOR_CHANGE_OF_COMMISSION = 1000;
+
     public EUBank(long id, String bankCountry, Currency currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
         super(id, bankCountry, currency, numberOfEmployees, avrSalaryOfEmployee, rating, totalCapital);
     }
@@ -12,9 +25,9 @@ public class EUBank extends Bank {
     public int getLimitOfWithdrawal() {
         switch (this.getCurrency()) {
             case EUR:
-                return 2200;
+                return LIMIT_OF_WITHDRAWAL_EUR;
             case USD:
-                return 2000;
+                return LIMIT_OF_WITHDRAWAL_USD;
             default:
                 return 0;
         }
@@ -24,9 +37,9 @@ public class EUBank extends Bank {
     public int getLimitOfFunding() {
         switch (this.getCurrency()) {
             case EUR:
-                return 20000;
+                return LIMIT_OF_FUNDING_EUR;
             case USD:
-                return 10000;
+                return LIMIT_OF_FUNDING_USD;
             default:
                 return 0;
         }
@@ -36,9 +49,9 @@ public class EUBank extends Bank {
     public int getMonthlyRate() {
         switch (this.getCurrency()) {
             case EUR:
-                return 1;
+                return MONTHLY_RATE_EUR;
             case USD:
-                return 0;
+                return MONTHLY_RATE_USD;
             default:
                 return 0;
         }
@@ -47,24 +60,14 @@ public class EUBank extends Bank {
     @Override
     public int getCommission(int summ) {
 
-        if(summ<1000){
-            switch (this.getCurrency()) {
-                case EUR:
-                    return 2;
-                case USD:
-                    return 5;
-                default:
-                    return 0;
-            }
-        } else {
-            switch (this.getCurrency()){
-                case EUR:
-                    return 4;
-                case USD:
-                    return 7;
-                default:
-                    return 0;
-            }
+        switch (this.getCurrency()) {
+            case EUR:
+                return (summ < LIMIT_FOR_CHANGE_OF_COMMISSION ? LOW_COMMISSION_EUR : HIGHT_COMMISSION_EUR);
+            case USD:
+                return (summ < LIMIT_FOR_CHANGE_OF_COMMISSION ? LOW_COMMISSION_USD : HIGHT_COMMISSION_USD);
+            default:
+                return 0;
         }
+
     }
 }

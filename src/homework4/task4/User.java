@@ -4,6 +4,7 @@ import homework4.task1.Bank;
 
 public class User {
 
+    private static final String INFO_ABOUT_USER = "Name: %s; balance: %.2f";
     private long id;
     private String name;
     private double balance;
@@ -33,8 +34,8 @@ public class User {
         this.balance = balance;
     }
 
+    @Override
     public String toString(){
-        String str = "Name: %s; balance: %.2f";
-        return String.format(str,this.name,this.balance);
+        return String.format(INFO_ABOUT_USER,this.name,this.balance);
     }
 }

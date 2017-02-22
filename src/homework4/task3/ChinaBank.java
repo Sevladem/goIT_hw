@@ -5,6 +5,18 @@ import homework4.task2.Currency;
 
 public class ChinaBank extends Bank {
 
+    public static final int LIMIT_OF_WITHDRAWAL_EUR = 150;
+    public static final int LIMIT_OF_WITHDRAWAL_USD = 100;
+    public static final int LIMIT_OF_FUNDING_EUR = 5000;
+    public static final int LIMIT_OF_FUNDING_USD = 10000;
+    public static final int MONTHLY_RATE_EUR = 0;
+    public static final int MONTHLY_RATE_USD = 1;
+    public static final int LOW_COMMISSION_EUR = 10;
+    public static final int HIGHT_COMMISSION_EUR = 11;
+    public static final int LOW_COMMISSION_USD = 3;
+    public static final int HIGHT_COMMISSION_USD = 5;
+    public static final int LIMIT_FOR_CHANGE_OF_COMMISSION = 1000;
+
     public ChinaBank(long id, String bankCountry, Currency currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
         super(id, bankCountry, currency, numberOfEmployees, avrSalaryOfEmployee, rating, totalCapital);
     }
@@ -13,9 +25,9 @@ public class ChinaBank extends Bank {
     public int getLimitOfWithdrawal() {
         switch (this.getCurrency()) {
             case EUR:
-                return 150;
+                return LIMIT_OF_WITHDRAWAL_EUR;
             case USD:
-                return 100;
+                return LIMIT_OF_WITHDRAWAL_USD;
             default:
                 return 0;
         }
@@ -25,9 +37,9 @@ public class ChinaBank extends Bank {
     public int getLimitOfFunding() {
         switch (this.getCurrency()) {
             case EUR:
-                return 5000;
+                return LIMIT_OF_FUNDING_EUR;
             case USD:
-                return 10000;
+                return LIMIT_OF_FUNDING_USD;
             default:
                 return 0;
         }
@@ -37,9 +49,9 @@ public class ChinaBank extends Bank {
     public int getMonthlyRate() {
         switch (this.getCurrency()) {
             case EUR:
-                return 0;
+                return MONTHLY_RATE_EUR;
             case USD:
-                return 1;
+                return MONTHLY_RATE_USD;
             default:
                 return 0;
         }
@@ -48,24 +60,14 @@ public class ChinaBank extends Bank {
     @Override
     public int getCommission(int summ) {
 
-        if(summ<1000){
-            switch (this.getCurrency()) {
-                case EUR:
-                    return 10;
-                case USD:
-                    return 3;
-                default:
-                    return 0;
-            }
-        } else {
-            switch (this.getCurrency()){
-                case EUR:
-                    return 11;
-                case USD:
-                    return 5;
-                default:
-                    return 0;
-            }
+        switch (this.getCurrency()) {
+            case EUR:
+                return (summ < LIMIT_FOR_CHANGE_OF_COMMISSION ? LOW_COMMISSION_EUR : HIGHT_COMMISSION_EUR);
+            case USD:
+                return (summ < LIMIT_FOR_CHANGE_OF_COMMISSION ? LOW_COMMISSION_USD : HIGHT_COMMISSION_USD);
+            default:
+                return 0;
         }
+
     }
 }
