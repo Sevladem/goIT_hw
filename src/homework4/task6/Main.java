@@ -1,9 +1,9 @@
 package homework4.task6;
 
 import homework4.task1.Bank;
-import homework4.task1.task3.ChinaBank;
-import homework4.task1.task3.EUBank;
-import homework4.task1.task3.USBank;
+import homework4.task3.ChinaBank;
+import homework4.task3.EUBank;
+import homework4.task3.USBank;
 import homework4.task2.Currency;
 import homework4.task4.User;
 import homework4.task5.BankSystemImpl;

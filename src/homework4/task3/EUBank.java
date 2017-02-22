@@ -1,11 +1,10 @@
-package homework4.task1.task3;
+package homework4.task3;
 
 import homework4.task1.Bank;
 import homework4.task2.Currency;
 
-public class USBank extends Bank {
-
-    public USBank(long id, String bankCountry, Currency currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
+public class EUBank extends Bank {
+    public EUBank(long id, String bankCountry, Currency currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
         super(id, bankCountry, currency, numberOfEmployees, avrSalaryOfEmployee, rating, totalCapital);
     }
 
@@ -13,9 +12,9 @@ public class USBank extends Bank {
     public int getLimitOfWithdrawal() {
         switch (this.getCurrency()) {
             case EUR:
-                return 1200;
+                return 2200;
             case USD:
-                return 1000;
+                return 2000;
             default:
                 return 0;
         }
@@ -25,9 +24,9 @@ public class USBank extends Bank {
     public int getLimitOfFunding() {
         switch (this.getCurrency()) {
             case EUR:
-                return 10000;
+                return 20000;
             case USD:
-                return 0;
+                return 10000;
             default:
                 return 0;
         }
@@ -37,9 +36,9 @@ public class USBank extends Bank {
     public int getMonthlyRate() {
         switch (this.getCurrency()) {
             case EUR:
-                return 2;
-            case USD:
                 return 1;
+            case USD:
+                return 0;
             default:
                 return 0;
         }
@@ -51,7 +50,7 @@ public class USBank extends Bank {
         if(summ<1000){
             switch (this.getCurrency()) {
                 case EUR:
-                    return 6;
+                    return 2;
                 case USD:
                     return 5;
                 default:
@@ -60,7 +59,7 @@ public class USBank extends Bank {
         } else {
             switch (this.getCurrency()){
                 case EUR:
-                    return 8;
+                    return 4;
                 case USD:
                     return 7;
                 default:

@@ -1,10 +1,11 @@
-package homework4.task1.task3;
+package homework4.task3;
 
 import homework4.task1.Bank;
 import homework4.task2.Currency;
 
-public class EUBank extends Bank {
-    public EUBank(long id, String bankCountry, Currency currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
+public class ChinaBank extends Bank {
+
+    public ChinaBank(long id, String bankCountry, Currency currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
         super(id, bankCountry, currency, numberOfEmployees, avrSalaryOfEmployee, rating, totalCapital);
     }
 
@@ -12,9 +13,9 @@ public class EUBank extends Bank {
     public int getLimitOfWithdrawal() {
         switch (this.getCurrency()) {
             case EUR:
-                return 2200;
+                return 150;
             case USD:
-                return 2000;
+                return 100;
             default:
                 return 0;
         }
@@ -24,7 +25,7 @@ public class EUBank extends Bank {
     public int getLimitOfFunding() {
         switch (this.getCurrency()) {
             case EUR:
-                return 20000;
+                return 5000;
             case USD:
                 return 10000;
             default:
@@ -36,9 +37,9 @@ public class EUBank extends Bank {
     public int getMonthlyRate() {
         switch (this.getCurrency()) {
             case EUR:
-                return 1;
-            case USD:
                 return 0;
+            case USD:
+                return 1;
             default:
                 return 0;
         }
@@ -50,18 +51,18 @@ public class EUBank extends Bank {
         if(summ<1000){
             switch (this.getCurrency()) {
                 case EUR:
-                    return 2;
+                    return 10;
                 case USD:
-                    return 5;
+                    return 3;
                 default:
                     return 0;
             }
         } else {
             switch (this.getCurrency()){
                 case EUR:
-                    return 4;
+                    return 11;
                 case USD:
-                    return 7;
+                    return 5;
                 default:
                     return 0;
             }
