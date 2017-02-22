@@ -5,17 +5,17 @@ import homework4.task2.Currency;
 
 public class EUBank extends Bank {
 
-    public static final int LIMIT_OF_WITHDRAWAL_EUR = 2200;
-    public static final int LIMIT_OF_WITHDRAWAL_USD = 2000;
-    public static final int LIMIT_OF_FUNDING_EUR = 20000;
-    public static final int LIMIT_OF_FUNDING_USD = 10000;
-    public static final int MONTHLY_RATE_EUR = 1;
-    public static final int MONTHLY_RATE_USD = 0;
-    public static final int LOW_COMMISSION_EUR = 2;
-    public static final int HIGHT_COMMISSION_EUR = 4;
-    public static final int LOW_COMMISSION_USD = 5;
-    public static final int HIGHT_COMMISSION_USD = 7;
-    public static final int LIMIT_FOR_CHANGE_OF_COMMISSION = 1000;
+    private  static final int LIMIT_OF_WITHDRAWAL_EUR = 2200;
+    private  static final int LIMIT_OF_WITHDRAWAL_USD = 2000;
+    private  static final int LIMIT_OF_FUNDING_EUR = 20000;
+    private  static final int LIMIT_OF_FUNDING_USD = 10000;
+    private  static final int MONTHLY_RATE_EUR = 1;
+    private  static final int MONTHLY_RATE_USD = 0;
+    private  static final int LOW_COMMISSION_EUR = 2;
+    private  static final int HIGHT_COMMISSION_EUR = 4;
+    private  static final int LOW_COMMISSION_USD = 5;
+    private  static final int HIGHT_COMMISSION_USD = 7;
+    private  static final int LIMIT_FOR_CHANGE_OF_COMMISSION = 1000;
 
     public EUBank(long id, String bankCountry, Currency currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
         super(id, bankCountry, currency, numberOfEmployees, avrSalaryOfEmployee, rating, totalCapital);

@@ -7,15 +7,15 @@ public class USBank extends Bank {
 
     private static final int LIMIT_OF_WITHDRAWAL_EUR = 1200;
     private static final int LIMIT_OF_WITHDRAWAL_USD = 1000;
-    public static final int LIMIT_OF_FUNDING_EUR = 10000;
-    public static final int LIMIT_OF_FUNDING_USD = 0;
-    public static final int MONTHLY_RATE_EUR = 2;
-    public static final int MONTHLY_RATE_USD = 1;
-    public static final int LOW_COMMISSION_EUR = 6;
-    public static final int HIGHT_COMMISSION_EUR = 8;
-    public static final int LOW_COMMISSION_USD = 5;
-    public static final int HIGHT_COMMISSION_USD = 7;
-    public static final int LIMIT_FOR_CHANGE_OF_COMMISSION = 1000;
+    private  static final int LIMIT_OF_FUNDING_EUR = 10000;
+    private  static final int LIMIT_OF_FUNDING_USD = 0;
+    private  static final int MONTHLY_RATE_EUR = 2;
+    private  static final int MONTHLY_RATE_USD = 1;
+    private  static final int LOW_COMMISSION_EUR = 6;
+    private  static final int HIGHT_COMMISSION_EUR = 8;
+    private  static final int LOW_COMMISSION_USD = 5;
+    private  static final int HIGHT_COMMISSION_USD = 7;
+    private  static final int LIMIT_FOR_CHANGE_OF_COMMISSION = 1000;
 
 
     public USBank(long id, String bankCountry, Currency currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
