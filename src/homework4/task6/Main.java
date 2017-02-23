@@ -6,6 +6,7 @@ import homework4.task3.EUBank;
 import homework4.task3.USBank;
 import homework4.task2.Currency;
 import homework4.task4.User;
+import homework4.task5.BankSystem;
 import homework4.task5.BankSystemImpl;
 
 public class Main {
@@ -19,7 +20,7 @@ public class Main {
         banks[4] = new ChinaBank(5,"China",Currency.USD,5,250.0,11,2000);
         banks[5] = new ChinaBank(6,"China",Currency.EUR,6,850.0,13,3000);
 
-        BankSystemImpl bankSystem = new BankSystemImpl();
+        BankSystem bankSystem = new BankSystemImpl();
 
         User[] users = new User[6];
         for (int i = 0; i < users.length; i++) {
