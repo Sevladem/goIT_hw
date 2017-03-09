@@ -58,6 +58,9 @@ public final class User {
 
     @Override
     public boolean equals(Object obj) {
+        if(this==null || obj==null){
+            return false;
+        }
         if(obj instanceof User){
             return (this.firstName.equals(((User) obj).getFirstName()) && this.lastName.equals(((User) obj).getLastName())
                     && this.salary == ((User) obj).getSalary() && this.balance == ((User) obj).getBalance());
@@ -67,12 +70,6 @@ public final class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", salary=" + salary +
-                ", balance=" + balance +
-                '}';
+        return String.format("User{id=%d, firstName=%s, lastName=%s, salary=%d, balance=%d}",id,firstName,lastName,salary,balance);
     }
 }

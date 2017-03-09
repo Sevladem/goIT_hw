@@ -6,8 +6,9 @@ public final class ArraysUtils {
 
     }
 
-    public static int secondLargest(int[] array) {
+    public static int secondLargest(int[] inArray) {
 
+        int[] array = inArray.clone();
         int buf;
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length-i-1; j++) {
@@ -22,10 +23,10 @@ public final class ArraysUtils {
     }
 
     public static int[] modulus(int[] array) {
-        int[] modulus = new int[2];
-        modulus[0] = Math.abs(array[0]);
-        modulus[1] = Math.abs(array[array.length-1]);
-        return modulus;
+        int[] intModulus = new int[2];
+        intModulus[0] = Math.abs(array[0]);
+        intModulus[1] = Math.abs(array[array.length-1]);
+        return intModulus;
     }
 
     public static long multiplication(int[] array) {
@@ -76,11 +77,23 @@ public final class ArraysUtils {
 
     public static int[] reverse(int[] array){
         int[] returnArray = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            returnArray[array.length-i-1] = array[i];
+        }
         return returnArray;
     }
 
     public static int[] findEvenElements(int[] array){
         int[] returnArray = new int[array.length];
+        int i = 0;
+
+        for (int element : array) {
+            if(element%2 == 0){
+                returnArray[i] = element;
+                i++;
+            }
+        }
+
         return returnArray;
     }
 

@@ -33,6 +33,7 @@ public final class UserUtils {
             }
         }
 
+        returnUsers = deleteEmptyUsers(returnUsers);
         return returnUsers;
     }
 
@@ -47,11 +48,12 @@ public final class UserUtils {
             }
         }
 
+        returnUsers = deleteEmptyUsers(returnUsers);
         return returnUsers;
     }
 
 
-    public static User[] paySalaryToUsers(User[] users){
+    public static final User[] paySalaryToUsers(User[] users){
 
         for (User user : users) {
             user.setBalance(user.getBalance()+user.getSalary());
@@ -61,7 +63,7 @@ public final class UserUtils {
 
     }
 
-    public static long[] getUsersId(User[] users){
+    public static final long[] getUsersId(User[] users){
         long[] usersId = new long[users.length];
 
         for (int i = 0; i < users.length; i++) {

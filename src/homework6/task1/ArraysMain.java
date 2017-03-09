@@ -13,7 +13,7 @@ public class ArraysMain {
 
         int[] intModulus;
 
-        System.out.println("int array = %d" + Arrays.toString(intArray));
+        System.out.println("int array = " + Arrays.toString(intArray));
         System.out.println(String.format("int sum = %d", ArraysUtils.sum(intArray)));
         System.out.println(String.format("int min = %d",ArraysUtils.min(intArray)));
         System.out.println(String.format("int max = %d",ArraysUtils.max(intArray)));
@@ -25,6 +25,9 @@ public class ArraysMain {
         System.out.println(String.format("int modulus of last element = %d",intModulus[1]));
 
         System.out.println(String.format("int second largest element = %d",ArraysUtils.secondLargest(intArray)));
+
+        System.out.println("revers array = " + Arrays.toString(ArraysUtils.reverse(intArray)));
+        System.out.println("Even elements array = " + Arrays.toString(ArraysUtils.findEvenElements(intArray)));
 
     }
 

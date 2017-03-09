@@ -2,6 +2,9 @@ package homework6.task3;
 
 import homework6.task2.User;
 
+import javax.jws.soap.SOAPBinding;
+import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Random;
 
 public class UsersMain {
@@ -18,7 +21,11 @@ public class UsersMain {
         printArrays(UserUtils.usersWithContitionalBalance(users,5000),"usersWithContitionalBalance");
         printArrays(UserUtils.paySalaryToUsers(users),"paySalaryToUsers");
         printArrays(UserUtils.getUsersId(users),"getUsersId");
-        printArrays(UserUtils.deleteEmptyUsers(UserUtils.uniqueUsers(users)),"deleteEmptyUsers");
+
+
+        User[] usersForTestDeleteMethod = Arrays.copyOf(users,users.length+2);
+        printArrays(usersForTestDeleteMethod,"Array users for test delete method");
+        printArrays(UserUtils.deleteEmptyUsers(usersForTestDeleteMethod),"deleteEmptyUsers");
 
     }
 
