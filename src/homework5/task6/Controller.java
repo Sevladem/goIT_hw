@@ -13,12 +13,13 @@ import java.text.ParseException;
 public class Controller{
 
     private API apis[] = new API[3];
-    private DAO dao = new DAOImpl();
+    private DAO dao;
 
     public Controller() throws ParseException {
         apis[0] = new BookingComAPI();
         apis[1] = new TripAdvisorAPI();
         apis[2] = new GoogleAPI();
+        this.dao = new DAOImpl();
     }
 
     public Room[] requstRooms(int price, int persons, String city, String hotel){
