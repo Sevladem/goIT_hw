@@ -58,7 +58,7 @@ public final class User {
 
     @Override
     public boolean equals(Object obj) {
-        if(this==null || obj==null){
+        if(obj==null){
             return false;
         }
         if(obj instanceof User){

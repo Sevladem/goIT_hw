@@ -12,23 +12,25 @@ public final class UserUtils {
 
     public static User[] uniqueUsers(User[] users){
         User[] returnUsers = new User[users.length];
-        User uniqueUsers = null;
+        boolean uniqueUsers;
         int k = 0;
 
         for (int i = 0; i < users.length; i++) {
+            if(users[i]==null){
+                continue;
+            }
+            uniqueUsers = true;
             for (int j = 0; j < users.length; j++) {
-                if (i==j){
+                if (i==j || users[j]==null){
                     continue;
                 }
                 if(users[i].equals(users[j])) {
-                    uniqueUsers = null;
+                    uniqueUsers = false;
                     break;
-                }else{
-                    uniqueUsers = users[i];
                 }
             }
-            if (uniqueUsers!=null){
-                returnUsers[k] = uniqueUsers;
+            if (uniqueUsers){
+                returnUsers[k] = users[i];
                 k++;
             }
         }
