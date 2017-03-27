@@ -11,8 +11,14 @@ public class TestListMetods {
         ArrayList<Integer> arrayList = new ArrayList<>();
         LinkedList<Integer> linkedList = new LinkedList<>();
 
+        ArrayList<String> arrayListString = new ArrayList<>();
+        LinkedList<String> linkedListString = new LinkedList<>();
+
         listAdd(arrayList,1000);
         listAdd(linkedList,1000);
+
+        listAdd(arrayListString,1000);
+        listAdd(linkedListString,1000);
 
         listSet(arrayList);
         listSet(linkedList);
@@ -47,7 +53,7 @@ public class TestListMetods {
     }
 
 
-    private static void listAdd(List<Integer> innerList, int length){
+    private static void listAdd(List innerList, int length){
 
         if(innerList == null){
             return;
