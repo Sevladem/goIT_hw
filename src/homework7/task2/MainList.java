@@ -9,6 +9,7 @@ import java.util.*;
 public class MainList {
 
     private static final int COUNT_OF_ORDER = 10;
+    private static final Random rand = new Random();
 
     public static void main(String[] args) {
 
@@ -36,7 +37,6 @@ public class MainList {
     }
 
     private static List<Order> initOrder(){
-        final Random rand = new Random();
         User user;
         Order order;
         int randIndexUser;
