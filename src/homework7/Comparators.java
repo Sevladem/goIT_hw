@@ -25,7 +25,7 @@ public final class Comparators {
             if(o1==null || o2==null){
                 return 0;
             }
-            int result = o2.getPrice() - o1.getPrice();
+            int result = o1.getPrice() - o2.getPrice();
             if (result==0){
                 result = o1.getUser().getCity().compareTo(o2.getUser().getCity());
             }
