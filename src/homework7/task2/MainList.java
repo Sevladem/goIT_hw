@@ -37,18 +37,14 @@ public class MainList {
     }
 
     private static List<Order> initOrder(){
-        User user;
-        Order order;
-        int randIndexUser;
-        int randIndexOrder;
         List<Order> orderList = new ArrayList<>(COUNT_OF_ORDER);
 
         for (int i = 0; i < COUNT_OF_ORDER; i++) {
-            randIndexUser = rand.nextInt(100) /10;
-            randIndexOrder = rand.nextInt(500) /10;
+            int randIndexUser = rand.nextInt(100) /10;
+            int randIndexOrder = rand.nextInt(500) /10;
 
-            user = new User(i,"FN"+randIndexUser,"LN"+randIndexUser, "city"+randIndexUser,5000+randIndexUser);
-            order = new Order(i,100+randIndexOrder, Currency.getInstance("UAH"), "itemName"+randIndexOrder, "shopID"+randIndexOrder,user );
+            User user = new User(i,"FN"+randIndexUser,"LN"+randIndexUser, "city"+randIndexUser,5000+randIndexUser);
+            Order order = new Order(i,100+randIndexOrder, Currency.getInstance("UAH"), "itemName"+randIndexOrder, "shopID"+randIndexOrder,user );
             orderList.add(order);
         }
 
