@@ -9,168 +9,146 @@ public class TestListMetods {
 
     public static void main(String[] args) {
         System.out.println("Integer:");
-        ArrayList<Integer> integerArrayList = new ArrayList<>();
-        LinkedList<Integer> integerLinkedList = new LinkedList<>();
+        ArrayList<Integer> integerArrayList = initList(1000);
+        LinkedList<Integer> integerLinkedList = new LinkedList<>(integerArrayList);
 
-        listAdd(integerArrayList,1000);
-        listAdd(integerLinkedList,1000);
+        testAdd(integerArrayList);
+        testAdd(integerLinkedList);
 
-        listSet(integerArrayList);
-        listSet(integerLinkedList);
+        testSet(integerArrayList);
+        testSet(integerLinkedList);
 
-        listGet(integerArrayList);
-        listGet(integerLinkedList);
+        testGet(integerArrayList);
+        testGet(integerLinkedList);
 
-        listRemove(integerArrayList);
-        listRemove(integerLinkedList);
+        testRemove(integerArrayList);
+        testRemove(integerLinkedList);
 
-        integerArrayList.clear();
-        integerLinkedList.clear();
+        integerArrayList = initList(10000);
+        integerLinkedList = new LinkedList<>(integerArrayList);
 
-        listAdd(integerArrayList,10000);
-        listAdd(integerLinkedList,10000);
+        testAdd(integerArrayList);
+        testAdd(integerLinkedList);
 
-        listSet(integerArrayList);
-        listSet(integerLinkedList);
+        testSet(integerArrayList);
+        testSet(integerLinkedList);
 
-        listGet(integerArrayList);
-        listGet(integerLinkedList);
+        testGet(integerArrayList);
+        testGet(integerLinkedList);
 
-        listRemove(integerArrayList);
-        listRemove(integerLinkedList);
+        testRemove(integerArrayList);
+        testRemove(integerLinkedList);
 
         System.out.println("String");
-        ArrayList<String> stringArrayList = new ArrayList<>();
-        LinkedList<String> stringLinkedList = new LinkedList<>();
+        ArrayList<String> stringArrayList = initList(1000);
+        LinkedList<String> stringLinkedList = new LinkedList<>(stringArrayList);
 
-        listAdd(stringArrayList,1000);
-        listAdd(stringLinkedList,1000);
+        testAdd(stringArrayList);
+        testAdd(stringLinkedList);
 
-        listSet(stringArrayList);
-        listSet(stringLinkedList);
+        testSet(stringArrayList);
+        testSet(stringLinkedList);
 
-        listGet(stringArrayList);
-        listGet(stringLinkedList);
+        testGet(stringArrayList);
+        testGet(stringLinkedList);
 
-        listRemove(stringArrayList);
-        listRemove(stringLinkedList);
+        testRemove(stringArrayList);
+        testRemove(stringLinkedList);
 
-        stringArrayList.clear();
-        stringLinkedList.clear();
+        stringArrayList = initList(10000);
+        stringLinkedList = new LinkedList<>(stringArrayList);
 
-        listAdd(stringArrayList,10000);
-        listAdd(stringLinkedList,10000);
+        testAdd(stringArrayList);
+        testAdd(stringLinkedList);
 
-        listSet(stringArrayList);
-        listSet(stringLinkedList);
+        testSet(stringArrayList);
+        testSet(stringLinkedList);
 
-        listGet(stringArrayList);
-        listGet(stringLinkedList);
+        testGet(stringArrayList);
+        testGet(stringLinkedList);
 
-        listRemove(stringArrayList);
-        listRemove(stringLinkedList);
+        testRemove(stringArrayList);
+        testRemove(stringLinkedList);
 
     }
 
+    private static ArrayList initList(int lengts){
+
+        ArrayList returnList = new ArrayList();
+        for (int i = 0; i < lengts; i++) {
+            returnList.add(i,i);
+        }
+
+        return returnList;
+    }
 
     private static long getTime(){
         return System.nanoTime();
     }
 
+    private static void testAdd(List innerList){
+        if(innerList instanceof ArrayList){
+            System.out.println("ArrayList add");
+        }
 
-    private static void listAdd(List innerList, int length){
+        if(innerList instanceof LinkedList){
+            System.out.println("LinkedList add");
+        }
+        long start = getTime();
+        innerList.add(777);
+        long finish = getTime();
+        System.out.println(finish - start);
+    }
 
+    private static void testSet(List innerList){
+        if(innerList instanceof ArrayList){
+            System.out.println("ArrayList set");
+        }
+
+        if(innerList instanceof LinkedList){
+            System.out.println("LinkedList set");
+        }
+        long start = getTime();
+        innerList.set(777,777);
+        long finish = getTime();
+        System.out.println(finish - start);
+    }
+
+    private static void testGet(List innerList){
         if(innerList == null){
             return;
         }
 
         if(innerList instanceof ArrayList){
-            System.out.println(String.format("ArrayList add (%d)",length));
+            System.out.println("ArrayList get");
         }
 
         if(innerList instanceof LinkedList){
-            System.out.println(String.format("LinkedList add (%d)",length));
+            System.out.println("LinkedList get");
         }
 
         long start = getTime();
-        for (int i = 0; i < length; i++) {
-            innerList.add(i);
-        }
+        innerList.get(777);
         long finish = getTime();
         System.out.println(finish - start);
 
     }
 
-    private static void listSet(List innerList){
-
+    private static void testRemove(List innerList){
         if(innerList == null){
             return;
         }
 
-        int length = innerList.size();
         if(innerList instanceof ArrayList){
-            System.out.println(String.format("ArrayList set (%d)",length));
+            System.out.println("ArrayList remove");
         }
 
         if(innerList instanceof LinkedList){
-            System.out.println(String.format("LinkedList set (%d)",length));
+            System.out.println("LinkedList remove");
         }
 
         long start = getTime();
-        for (int i = 0; i < length; i++) {
-            innerList.set(i,i);
-        }
-        long finish = getTime();
-        System.out.println(finish - start);
-
-    }
-
-    private static void listGet(List innerList){
-
-        if(innerList == null){
-            return;
-        }
-
-        int length = innerList.size();
-        if(innerList instanceof ArrayList){
-            System.out.println(String.format("ArrayList get (%d)",length));
-        }
-
-        if(innerList instanceof LinkedList){
-            System.out.println(String.format("LinkedList get (%d)",length));
-        }
-
-        long start = getTime();
-        for (int i = 0; i < length; i++) {
-            innerList.get(i);
-        }
-        long finish = getTime();
-        System.out.println(finish - start);
-
-    }
-
-    private static void listRemove(List innerList){
-
-        if(innerList == null){
-            return;
-        }
-
-        int length = innerList.size();
-        if(innerList instanceof ArrayList){
-            System.out.println(String.format("ArrayList remove (%d)",length));
-        }
-
-        if(innerList instanceof LinkedList){
-            System.out.println(String.format("LinkedList remove (%d)",length));
-        }
-
-        Iterator<Integer> iterator = innerList.iterator();
-
-        long start = getTime();
-        if(iterator.hasNext()){
-            iterator.next();
-            iterator.remove();
-        }
+        innerList.remove(777);
         long finish = getTime();
         System.out.println(finish - start);
 

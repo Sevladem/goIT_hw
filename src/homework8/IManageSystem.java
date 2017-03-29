@@ -13,5 +13,5 @@ public interface IManageSystem<T> {
     Double getPrice(T obj);
     Set<T> getProducts();
     List<Double> getPrices();
-        
+
 }

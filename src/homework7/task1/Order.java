@@ -2,7 +2,7 @@ package homework7.task1;
 
 import java.util.Currency;
 
-public class Order implements Comparable{
+public class Order{
 
     private long id;
     private int price;
@@ -73,9 +73,4 @@ public class Order implements Comparable{
         return String.format("order{id=%d, price=%d, city=%s, itemName=%s, currency=%s, userLN=%s}",id,price,user.getCity(),itemName,currency.toString(),user.getLastName());
     }
 
-    @Override
-    public int compareTo(Object o) {
-        Order order = (Order) o;
-        return price-order.getPrice();
-    }
 }

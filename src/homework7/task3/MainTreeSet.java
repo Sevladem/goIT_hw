@@ -1,5 +1,6 @@
 package homework7.task3;
 
+import homework7.*;
 import homework7.task1.Order;
 import homework7.task1.User;
 
@@ -9,48 +10,59 @@ public class MainTreeSet {
 
     private static final int COUNT_OF_ORDER = 10;
     private static final Random rand = new Random();
+    public static final String LASTNAME_FOR_FIND = "Petrov";
+    public static final String MESSAGE_WHEN_NOT_FIND = "In the set there is no order with the user by the lastname %s";
+    public static final String MESSAGE_WHEN_FIND = "In the set there is an order with the user by the lastname %s";
 
     public static void main(String[] args) {
-        TreeSet<Order> orderTreeSet = initOrder();
+        TreeSet<Order> orderTreeSet = initOrders();
         System.out.println(orderTreeSet);
-        findOrderWithUserByLastName(orderTreeSet);
-
-        orderTreeSet = initOrder();
-        System.out.println(orderTreeSet.last());
+        findOrderWithUserByLastName(orderTreeSet.iterator());
 
         System.out.println();
-        orderTreeSet = initOrder();
+        orderTreeSet = initOrders();
         System.out.println(orderTreeSet);
-        deleteOrderWithCurrency(orderTreeSet,Currency.getInstance("USD"));
+        System.out.println(orderTreeSet.first());
+
+        System.out.println();
+        orderTreeSet = initOrders();
+        System.out.println(orderTreeSet);
+        deleteOrderWithCurrency(orderTreeSet.iterator(),Currency.getInstance("USD"));
+        System.out.println(orderTreeSet);
 
     }
 
-    private static void deleteOrderWithCurrency(TreeSet<Order> orderTreeSet, Currency currency) {
-        Iterator<Order> orderIterator = orderTreeSet.iterator();
+    private static void deleteOrderWithCurrency(Iterator<Order> orderIterator, Currency currency) {
 
         while (orderIterator.hasNext()) {
-            if(orderIterator.next().getCurrency() == currency){
-                orderIterator.remove();
+            Order order = orderIterator.next();
+            if (order!=null){
+                if(currency.equals(order.getCurrency())){
+                    orderIterator.remove();
+                }
             }
         }
-        System.out.println(orderTreeSet);
+
     }
 
-    private static void findOrderWithUserByLastName(TreeSet<Order> orderTreeSet) {
-        Iterator<Order> orderIterator = orderTreeSet.iterator();
-        String message = "In the set there is no order with the user by the lastname Petrov";
+    private static void findOrderWithUserByLastName(Iterator<Order> orderIterator) {
 
         while (orderIterator.hasNext()) {
-            if(orderIterator.next().getUser().getLastName().equals("Petrov")){
-                message = "In the set there is an order with the user by the lastname Petrov";
+            Order order = orderIterator.next();
+            if (order!=null){
+                if(order.getUser()!=null && LASTNAME_FOR_FIND.equals(order.getUser().getLastName())){
+                    System.out.println(String.format(MESSAGE_WHEN_FIND,LASTNAME_FOR_FIND));
+                    return;
+                }
             }
         }
-        System.out.println(message);
+        System.out.println(String.format(MESSAGE_WHEN_NOT_FIND,LASTNAME_FOR_FIND));
+
     }
 
-    private static TreeSet<Order> initOrder(){
+    private static TreeSet<Order> initOrders(){
 
-        TreeSet<Order> orderTreeSet = new TreeSet<Order>();
+        TreeSet<Order> orderTreeSet = new TreeSet<Order>(Comparators.COMPARE_BY_PRICE);
 
         for (int i = 0; i < COUNT_OF_ORDER-2; i++) {
 
