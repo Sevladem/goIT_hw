@@ -15,17 +15,17 @@ public class MainTreeSet {
     public static final String MESSAGE_WHEN_FIND = "In the set there is an order with the user by the lastname %s";
 
     public static void main(String[] args) {
-        TreeSet<Order> orderTreeSet = initOrders();
+        TreeSet<Order> orderTreeSet = initOrders(COUNT_OF_ORDER);
         System.out.println(orderTreeSet);
         findOrderWithUserByLastName(orderTreeSet.iterator());
 
         System.out.println();
-        orderTreeSet = initOrders();
+        orderTreeSet = initOrders(COUNT_OF_ORDER);
         System.out.println(orderTreeSet);
         System.out.println(orderTreeSet.first());
 
         System.out.println();
-        orderTreeSet = initOrders();
+        orderTreeSet = initOrders(COUNT_OF_ORDER);
         System.out.println(orderTreeSet);
         deleteOrderWithCurrency(orderTreeSet.iterator(),Currency.getInstance("USD"));
         System.out.println(orderTreeSet);
@@ -36,10 +36,8 @@ public class MainTreeSet {
 
         while (orderIterator.hasNext()) {
             Order order = orderIterator.next();
-            if (order!=null){
-                if(currency.equals(order.getCurrency())){
+            if (order!=null && currency.equals(order.getCurrency())){
                     orderIterator.remove();
-                }
             }
         }
 
@@ -49,22 +47,20 @@ public class MainTreeSet {
 
         while (orderIterator.hasNext()) {
             Order order = orderIterator.next();
-            if (order!=null){
-                if(order.getUser()!=null && LASTNAME_FOR_FIND.equals(order.getUser().getLastName())){
+            if (order!=null && order.getUser()!=null && LASTNAME_FOR_FIND.equals(order.getUser().getLastName())){
                     System.out.println(String.format(MESSAGE_WHEN_FIND,LASTNAME_FOR_FIND));
                     return;
-                }
             }
         }
         System.out.println(String.format(MESSAGE_WHEN_NOT_FIND,LASTNAME_FOR_FIND));
 
     }
 
-    private static TreeSet<Order> initOrders(){
+    private static TreeSet<Order> initOrders(int length){
 
         TreeSet<Order> orderTreeSet = new TreeSet<Order>(Comparators.COMPARE_BY_PRICE);
 
-        for (int i = 0; i < COUNT_OF_ORDER-2; i++) {
+        for (int i = 0; i < length-2; i++) {
 
             int randIndexUser = RAND.nextInt(100) /10;
             int randIndexOrder = RAND.nextInt(500) /10;
