@@ -8,8 +8,8 @@ public interface IManageSystem<T> {
     T save(T obj, double price);
     T save(T obj);
     void delete(T obj) ;
-    void deleteById(int id);
-    T get(int id);
+    void deleteById(String id);
+    T get(String id);
     Double getPrice(T obj);
     Set<T> getProducts();
     List<Double> getPrices();
