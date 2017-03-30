@@ -65,7 +65,7 @@ public class MainTreeSet {
             int randIndexUser = RAND.nextInt(100) /10;
             int randIndexOrder = RAND.nextInt(500) /10;
 
-            User user = new User(i,"FN"+randIndexUser,randIndexUser<2?"Petrov":"LN"+randIndexUser, "city"+randIndexUser,5000+randIndexUser);
+            User user = new User(i,"FN"+randIndexUser,randIndexUser<2?LASTNAME_FOR_FIND:"LN"+randIndexUser, "city"+randIndexUser,5000+randIndexUser);
             Order order = new Order(i,100+randIndexOrder, Currency.getInstance(randIndexOrder<25?"UAH":"USD"), "itemName"+randIndexOrder, "shopID"+randIndexOrder,user );
             orderTreeSet.add(order);
 

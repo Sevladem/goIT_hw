@@ -1,4 +1,6 @@
-package homework8;
+package homework8.task2;
+
+import homework8.task1.IdGenerator;
 
 public class Food {
 
@@ -7,8 +9,15 @@ public class Food {
     private String country;
     private int expiration;
 
-    public Food() {
+    public Food(String name, String country, int expiration) {
         this.id = IdGenerator.getUID();
+        this.name = name;
+        this.country = country;
+        this.expiration = expiration;
+    }
+
+    public Food(String id) {
+        this.id = id;
     }
 
     public String getId() {
@@ -44,6 +53,16 @@ public class Food {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         return this.id==((Food) o).id;
+    }
+
+    @Override
+    public String toString() {
+        return "Food{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", country='" + country + '\'' +
+                ", expiration=" + expiration +
+                '}';
     }
 
     @Override

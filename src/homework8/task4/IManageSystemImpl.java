@@ -1,4 +1,7 @@
-package homework8;
+package homework8.task4;
+
+import homework8.task2.Food;
+import homework8.task3.IManageSystem;
 
 import java.util.*;
 
@@ -12,12 +15,14 @@ public class IManageSystemImpl implements IManageSystem<Food> {
 
     @Override
     public Food save(Food obj, double price) {
-        return null;
+        database.put(obj,price);
+        return obj;
     }
 
     @Override
     public Food save(Food obj) {
-        return null;
+        database.put(obj,0.0);
+        return obj;
     }
 
     @Override
@@ -27,17 +32,13 @@ public class IManageSystemImpl implements IManageSystem<Food> {
 
     @Override
     public void deleteById(String id) {
-        Iterator<Food> foodIterator = database.keySet().iterator();
-        while(foodIterator.hasNext()){
-            Food food = foodIterator.next();
-            if (id.equals(food.getId())){
-                database.remove(food);
-            }
-        }
+        Food food = new Food(id);
+        database.remove(food);
     }
 
     @Override
     public Food get(String id) {
+
         Iterator<Food> foodIterator = database.keySet().iterator();
         while(foodIterator.hasNext()){
             Food food = foodIterator.next();
@@ -61,5 +62,12 @@ public class IManageSystemImpl implements IManageSystem<Food> {
     @Override
     public List<Double> getPrices() {
         return new ArrayList<>(database.values());
+    }
+
+    @Override
+    public String toString() {
+        return "IManageSystemImpl{" +
+                "database=" + database +
+                '}';
     }
 }

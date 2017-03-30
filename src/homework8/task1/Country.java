@@ -1,4 +1,4 @@
-package homework8;
+package homework8.task1;
 
 public enum Country {
     USA,
