@@ -57,12 +57,7 @@ public class Food {
 
     @Override
     public String toString() {
-        return "Food{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", country='" + country + '\'' +
-                ", expiration=" + expiration +
-                '}';
+        return String.format("Food{id='%s', name='%s', country='%s', expiration=%d}",id,name,country,expiration);
     }
 
     @Override

@@ -2,9 +2,9 @@ package homework8.task1;
 
 public enum Country {
     USA,
-    Germany,
-    Japan,
-    Ukraine,
-    France,
-    China
+    GERMANY,
+    JAPAN,
+    UKRAINE,
+    FRANCE,
+    CHINA
 }
